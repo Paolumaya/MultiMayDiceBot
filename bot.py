@@ -30,6 +30,10 @@ class Startup(discord.ui.Modal):
         # Make sure we know what the error actually is
         traceback.print_exception(type(error), error, error.__traceback__)
 
+    async def on_timeout(self) -> None:
+        pass
+
+
 
 class StartupCore(Startup, title='Core Body Parts'):
     cnt_clone = discord.ui.TextInput(label="# of Individual Bodies", placeholder="enter a number", default="1")
@@ -70,7 +74,7 @@ class StartupExtremities(Startup, title='Extremities'):
         print(self.cnt_finger)
         print(self.cnt_leg)
         print(self.cnt_toe)
-        cur.execute()
+        # cur.execute()
         await interaction.response.send_message(f'You should now be able to roll using `/roll`!', ephemeral=True)
 
 
